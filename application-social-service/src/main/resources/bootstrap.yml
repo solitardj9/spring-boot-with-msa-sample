@@ -1,0 +1,24 @@
+server:
+  port: 8083
+  
+spring:
+  application:
+    name: application-social-service
+  profiles:
+    active: default
+  security:
+    user:
+      name: manager
+      password: 1q2w3e4r
+      roles:
+      - ENDPOINT_ADMIN    
+---
+spring:
+  config:
+    activate:
+      on-profile: default
+  cloud:
+    config:
+      uri: http://localhost:8881
+      username: admin
+      password: asdqwe123

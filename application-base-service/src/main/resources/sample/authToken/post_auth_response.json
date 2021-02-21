@@ -1,0 +1,9 @@
+{
+  "code": 200,
+  "message": "Success",
+  "data": {
+    "token": "9435453c1528b2bf2397f7056736fb0442fcba249e8a39a48063dacfd1a375fa",
+    "userId": 1,
+    "createdAt": 1613805742462
+  }
+}

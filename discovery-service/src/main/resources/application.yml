@@ -1,0 +1,31 @@
+server:
+  port: 8763
+
+## https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-eureka-server.html
+## https://coe.gitbook.io/guide/service-discovery/eureka
+## Stand Alone Mode
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 본인 서비스를 eureka 서버에 등록 할지 여부.(eureka는 서버이면서 client가 될 수도 있음)
+    register-with-eureka: false
+    # client 서비스가 eureka 서버로 부터 서비스 리스트 정보를 local에 caching 할지 여부
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+## Peer Awareness Mode (no space in defaultZone)
+#eureka:
+#  instance:
+#    hostname: peer1
+#  client:
+#    serviceUrl:
+#      defaultZone: http://${peer1}:${peer1.port}/eureka/,http://${peer2}:${peer2.port}/eureka/
+
+spring:
+  application:
+    name: discovery-service
+  security:
+    user:
+      name: admin
+      password: asdqwe123

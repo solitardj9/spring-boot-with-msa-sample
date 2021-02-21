@@ -1,0 +1,31 @@
+server:
+  port: 8043
+      
+## https://twofootdog.tistory.com/64
+spring:
+  application:
+    name: gateway-service
+  main:
+    allow-bean-definition-overriding: true
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true  # default false
+      routes:
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://admin:asdqwe123@localhost:8763/eureka/
+      
+route:
+  config: '{"configs" : [ { "serviceName" : "application-base-service", "enable" : true, "path" : "/base/**", "routingUri" : "lb://application-base-service", "openApiPath" : "/v3/api-docs/application-base-service", "swaggerPath" : "/v2/api-docs" }, 
+                          { "serviceName" : "application-social-service", "enable" : true, "path" : "/social/**", "routingUri" : "lb://application-social-service", "openApiPath" : "/v3/api-docs/application-social-service", "swaggerPath" : "/v2/api-docs" },
+                          { "serviceName" : "auth-service", "enable" : true, "path" : "/auth/**", "routingUri" : "lb://auth-service", "openApiPath" : "/v3/api-docs/auth-service", "swaggerPath" : "/v2/api-docs" } ] }'
+
+
+

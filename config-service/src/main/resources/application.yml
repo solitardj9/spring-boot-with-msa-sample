@@ -6,19 +6,16 @@ spring:
     name: config-service
   # https://cloud.spring.io/spring-cloud-config/multi/multi__spring_cloud_config_server.html
   profiles:
-    active: native,dev
+    active: native
   cloud:
     config:
       server:
         native:
           # For Ubuntu
-          search-locations: 'file:/home/bkcha/workspace/sample codes/Spring Boot - MSA/config-service/src/main/resources/application-base-service,
-                             file:/home/bkcha/workspace/sample codes/Spring Boot - MSA/config-service/src/main/resources/application-social-service,
-                             file:/home/bkcha/workspace/sample codes/Spring Boot - MSA/config-service/src/main/resources/auth-service'
-          #- classpath:/social-service
-          # For windows
-          #- C:/workspace/sample codes/Spring Boot - MSA/config-service/src/main/resources/baseService
-          #- C:/workspace/sample codes/Spring Boot - MSA/config-service/src/main/resources/socialService
+          search-locations: 
+          - classpath:/application-base-service
+          - classpath:/application-social-service
+          - classpath:/auth-service
         #git:
         #  uri: https://github.com/code-presso/simplesns-config
         #  searchPaths: baseservice, socialservice
